@@ -5,13 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Building Scalable APIs with Node.js</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        .gradient-btn {
+            background: linear-gradient(90deg, #3b82f6, #14b8a6);
+        }
+        pre code {
+            @apply block overflow-x-auto whitespace-pre-wrap break-words;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 font-sans antialiased text-gray-900 p-8">
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow">
         <h1 class="text-3xl font-bold mb-4">Building Scalable APIs with Node.js</h1>
-        <p class="mb-4">Node.js is perfect for building APIs due to its non-blocking I/O. Use Express.js for routing and middleware.</p>
-        <!-- Add full blog content here -->
-        <a href="/" class="text-blue-500 hover:underline">Back to Home</a>
+        <p class="mb-4">Node.js, with its non-blocking I/O and event-driven architecture, is a powerful choice for building scalable APIs. Combined with Express.js, it enables rapid development of robust backend services suitable for applications like those in the Mojaloop ecosystem.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Why Node.js for APIs?</h2>
+        <p class="mb-4">Node.js excels in handling asynchronous operations, making it ideal for I/O-heavy tasks like API requests. Its single-threaded event loop ensures high concurrency, while Express.js simplifies routing, middleware, and request handling.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Setting Up an API</h2>
+        <p class="mb-4">Here’s a basic Express.js API setup:</p>
+        <pre class="bg-gray-50 p-4 rounded-md mb-4"><code>
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.get('/api/users', (req, res) => {
+    res.json([{ id: 1, name: 'John Doe' }]);
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+        </code></pre>
+        <p class="mb-4">This creates a simple endpoint to fetch users. Use `npm install express` to set up.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Scaling Strategies</h2>
+        <ul class="list-disc pl-6 mb-4">
+            <li><strong>Middleware</strong>: Use middleware for authentication (e.g., JWT), logging, or rate limiting.</li>
+            <li><strong>Database Integration</strong>: Connect to databases like MongoDB or PostgreSQL using ORMs like Mongoose or Sequelize.</li>
+            <li><strong>Clustering</strong>: Use the `cluster` module to leverage multiple CPU cores for better performance.</li>
+            <li><strong>Containerization</strong>: Deploy with Docker and orchestrate with Kubernetes for scalability, as seen in Mojaloop’s infrastructure.</li>
+        </ul>
+        
+        <h2 class="text-2xl font-semibold mb-3">Best Practices</h2>
+        <p class="mb-4">Structure your project with controllers, services, and routes for maintainability. Implement error handling with custom middleware. Use environment variables for configuration (e.g., `dotenv`). For production, add monitoring tools like Prometheus and logging with Winston.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Conclusion</h2>
+        <p class="mb-4">Node.js and Express.js provide a flexible foundation for scalable APIs. By following best practices and leveraging tools like Docker and Kubernetes, you can build robust services that handle high traffic, as demonstrated in open-source projects like Mojaloop for financial inclusion.</p>
+        
+        <a href="/" class="gradient-btn text-white px-6 py-3 rounded-md hover:opacity-90">Back to Home</a>
     </div>
 </body>
 </html>

@@ -5,13 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Tailwind CSS</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        .gradient-btn {
+            background: linear-gradient(90deg, #3b82f6, #14b8a6);
+        }
+    </style>
 </head>
 <body class="bg-gray-100 font-sans antialiased text-gray-900 p-8">
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow">
         <h1 class="text-3xl font-bold mb-4">Introduction to Tailwind CSS</h1>
-        <p class="mb-4">Tailwind CSS is a utility-first CSS framework that allows rapid building of custom designs without leaving your HTML.</p>
-        <!-- Add full blog content here -->
-        <a href="/" class="text-blue-500 hover:underline">Back to Home</a>
+        <p class="mb-4">Tailwind CSS is a utility-first CSS framework that streamlines UI development by providing low-level utility classes. Unlike traditional frameworks like Bootstrap, it allows for highly customizable designs without leaving your HTML.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Why Tailwind?</h2>
+        <p class="mb-4">Tailwind’s utility-first approach reduces the need for custom CSS, speeds up prototyping, and ensures consistent styling. Its flexibility is ideal for projects requiring unique designs, such as modern web applications or open-source platforms like Mojaloop.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Getting Started</h2>
+        <p class="mb-4">Add Tailwind via CDN for quick setups or install via npm for production:</p>
+        <pre class="bg-gray-50 p-4 rounded-md mb-4"><code>
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+        </code></pre>
+        <p class="mb-4">Example: A styled button with Tailwind:</p>
+        <pre class="bg-gray-50 p-4 rounded-md mb-4"><code>
+&lt;button class="px-4 py-2 rounded hover:bg-blue-600"&gt;Click Me&lt;/button&gt;
+        </code></pre>
+        
+        <h2 class="text-2xl font-semibold mb-3">Key Features</h2>
+        <ul class="list-disc pl-6 mb-4">
+            <li><strong>Utility Classes</strong>: Classes like `bg-blue-500`, `p-4`, or `rounded-lg` for rapid styling.</li>
+            <li><strong>Responsive Design</strong>: Prefixes like `sm:`, `md:`, `lg:` for responsive layouts.</li>
+            <li><strong>Customization</strong>: Configure via `tailwind.config.js` for custom colors, spacing, etc.</li>
+            <li><strong>PurgeCSS</strong>: Optimize production builds by removing unused styles.</li>
+        </ul>
+        
+        <h2 class="text-2xl font-semibold mb-3">Use Case</h2>
+        <p class="mb-4">In this portfolio, Tailwind is used for responsive grids, buttons, and cards. Its utility classes simplify styling while maintaining a clean, professional look, making it ideal for rapid development.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Conclusion</h2>
+        <p class="mb-4">Tailwind CSS is a game-changer for developers seeking flexibility and speed. Its utility-first approach is perfect for building modern UIs, whether for personal portfolios or complex systems like those in the Mojaloop Foundation.</p>
+        
+        <a href="/" class="gradient-btn text-white px-6 py-3 rounded-md hover:opacity-90">Back to Home</a>
     </div>
 </body>
 </html>

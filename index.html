@@ -40,6 +40,21 @@
                     <a href="#blogs" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Blogs</a>
                     <a href="#contact" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Contact</a>
                 </div>
+                <div class="sm:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden sm:hidden">
+                <div class="pt-2 pb-3 space-y-1">
+                    <a href="#introduction" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Introduction</a>
+                    <a href="#skills" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Skills</a>
+                    <a href="#projects" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Projects</a>
+                    <a href="#open-source" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Open Source</a>
+                    <a href="#blogs" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Blogs</a>
+                    <a href="#contact" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -126,14 +141,20 @@
     </section>
 
     <!-- Open Source Contributions Section -->
+    <!-- Open Source Contributions Section -->
     <section id="open-source" class="py-20 gradient-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold mb-10 text-center" data-aos="fade-up">Open Source Contributions</h2>
-            <div class="grid grid-cols-1 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-xl font-semibold mb-2">Mojaloop Foundation</h3>
                     <p class="mb-4">Contributed to the Mojaloop open-source project, focusing on financial inclusion through interoperable payment systems. Worked on enhancing transaction processing modules and improving API documentation for better developer adoption.</p>
-                    <a href="https://github.com/mojaloop/reporting-aggregator-svc" target="_blank" class="text-blue-500 hover:underline">View Mojaloop on GitHub</a>
+                    <a href="https://github.com/mojaloop" target="_blank" class="text-blue-500 hover:underline">View Mojaloop on GitHub</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-2">Payment Manager for Mojaloop (PM4ML)</h3>
+                    <p class="mb-4">Contributed to PM4ML, an open-source tool for managing payment operations in the Mojaloop ecosystem. Focused on integrating with Mojaloop’s APIs, optimizing transaction workflows, and enhancing user interfaces for payment orchestration.</p>
+                    <a href="https://github.com/pm4ml" target="_blank" class="text-blue-500 hover:underline">View PM4ML on GitHub</a>
                 </div>
             </div>
         </div>
@@ -199,6 +220,14 @@
     <!-- Footer -->
     <footer class="gradient-bg py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <div class="flex justify-center gap-4 mb-4">
+                <a href="https://github.com/v3-panwar-ujjwal" target="_blank" class="text-blue-500 hover:text-blue-600">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/ujjwal-panwar" target="_blank" class="text-blue-500 hover:text-blue-600">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+            </div>
             &copy; 2025 Ujjwal Panwar. All rights reserved.
         </div>
     </footer>
@@ -206,6 +235,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
+        // Hamburger menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
 
 </body>

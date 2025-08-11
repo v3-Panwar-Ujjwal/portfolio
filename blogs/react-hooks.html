@@ -5,14 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding React Hooks</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        .gradient-btn {
+            background: linear-gradient(90deg, #3b82f6, #14b8a6);
+        }
+        pre code {
+            @apply block overflow-x-auto whitespace-pre-wrap break-words;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 font-sans antialiased text-gray-900 p-8">
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow">
         <h1 class="text-3xl font-bold mb-4">Understanding React Hooks</h1>
-        <p class="mb-4">React Hooks are functions that let you use state and other React features without writing a class. Introduced in React 16.8, they revolutionized how we write React components.</p>
-        <p class="mb-4">Key hooks include useState for state management, useEffect for side effects, and more.</p>
-        <!-- Add full blog content here -->
-        <a href="/" class="text-blue-500 hover:underline">Back to Home</a>
+        <p class="mb-4">React Hooks, introduced in React 16.8, revolutionized how developers manage state and side effects in functional components. They allow you to use state, lifecycle methods, and other React features without writing class components, leading to cleaner and more reusable code.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Why Hooks?</h2>
+        <p class="mb-4">Before Hooks, managing state and side effects in React often required complex class components or higher-order components. Hooks simplify this by providing a functional approach. For example, `useState` replaces `this.state` and `this.setState`, while `useEffect` handles side effects like API calls or DOM updates.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Key Hooks</h2>
+        <ul class="list-disc pl-6 mb-4">
+            <li><strong>useState</strong>: Manages state in functional components. Example: <code>const [count, setCount] = useState(0);</code> creates a state variable `count` and its setter.</li>
+            <li><strong>useEffect</strong>: Handles side effects, like fetching data. Example: <code>useEffect(() => { fetchData(); }, [dependency]);</code> runs on mount or when `dependency` changes.</li>
+            <li><strong>useContext</strong>: Accesses context for global state management, reducing prop drilling.</li>
+            <li><strong>useReducer</strong>: An alternative to `useState` for complex state logic, similar to Redux.</li>
+        </ul>
+        
+        <h2 class="text-2xl font-semibold mb-3">Example: Counter Component</h2>
+        <p class="mb-4">Here’s a simple counter using `useState` and `useEffect`:</p>
+        <pre class="bg-gray-50 p-4 rounded-md mb-4"><code>
+import React, { useState, useEffect } from 'react';
+
+function Counter() {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        document.title = `Count: ${count}`;
+    }, [count]);
+
+    return (
+        &lt;div&gt;
+            &lt;p&gt;Count: {count}&lt;/p&gt;
+            &lt;button onClick={() => setCount(count + 1)}&gt;Increment&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+        </code></pre>
+        <p class="mb-4">This updates the document title whenever `count` changes, showcasing `useEffect`’s dependency array.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Benefits and Best Practices</h2>
+        <p class="mb-4">Hooks encourage modularity and reusability. Custom hooks, like `useFetch`, can encapsulate logic for reuse across components. Always follow the Rules of Hooks: only call hooks at the top level of components or custom hooks, and only in functional components.</p>
+        <p class="mb-4">For complex apps, combine `useReducer` with `useContext` for state management, or integrate with libraries like React Query for data fetching.</p>
+        
+        <h2 class="text-2xl font-semibold mb-3">Conclusion</h2>
+        <p class="mb-4">React Hooks simplify state and lifecycle management, making code more intuitive and maintainable. They’re essential for modern React development, especially in projects like those at the Mojaloop Foundation, where clean frontend code enhances user experience in financial systems.</p>
+        
+        <a href="/" class="gradient-btn text-white px-6 py-3 rounded-md hover:opacity-90">Back to Home</a>
     </div>
 </body>
 </html>
